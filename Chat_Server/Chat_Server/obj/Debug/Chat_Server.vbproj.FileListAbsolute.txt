@@ -1,0 +1,13 @@
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Debug\cup.ico
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Debug\Chat_Server.exe.config
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Debug\Chat_Server.exe
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Debug\Chat_Server.pdb
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Debug\Chat_Server.xml
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Debug\Lidgren.Network.dll
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Debug\Chat_Server.vbprojResolveAssemblyReference.cache
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Debug\Chat_Server.frmServer.resources
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Debug\Chat_Server.Resources.resources
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Debug\Chat_Server.vbproj.GenerateResource.Cache
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Debug\Chat_Server.exe
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Debug\Chat_Server.xml
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Debug\Chat_Server.pdb

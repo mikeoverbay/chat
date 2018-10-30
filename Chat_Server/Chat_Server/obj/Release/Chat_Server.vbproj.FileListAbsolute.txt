@@ -1,0 +1,12 @@
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Release\Chat_Server.exe.config
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Release\Chat_Server.exe
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Release\Chat_Server.pdb
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Release\Chat_Server.xml
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Release\Lidgren.Network.dll
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.frmServer.resources
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.Resources.resources
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.vbproj.GenerateResource.Cache
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.exe
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.xml
+C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.pdb
+C:\!_chat_program\Chat_Server\Chat_Server\bin\Release\cup.ico
