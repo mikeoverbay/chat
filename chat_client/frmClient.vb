@@ -37,6 +37,7 @@ Public Class frmClient
             While is_running
                 GetInputAndSendItToServer()
                 Application.DoEvents()
+                Threading.Thread.Sleep(10)
             End While
         End If
     End Sub
