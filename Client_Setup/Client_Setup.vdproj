@@ -15,7 +15,55 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_15F046F4BFF94597910DE527E8B723C5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_18BFFCA2CF9C452F8BD316BD9016D5A7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1F076F75392E4A1E937ACA47EF7E8125"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_21F67586F45B4DE69EFE8FCC1EAA6CF8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_65DFDC51354A4A4E978A10875859BE4F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6839A7D3E3B64A448D6FDE697D3A3C93"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_75DB2B297EF94765ACAB54E90C76F8D7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_79923C5855B842ACBBCCF199853B15C8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_902C3225B2064CE093DBF6BCCC779558"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -27,20 +75,74 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A28D201DD73244C99935B38437CAD4C8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AE7D9E5334664D4798594A8815D82878"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B61A07F2870F413CB7DDB20844DCD5E6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B71A484766A447DEA8DCF09A88B113B7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C6BEFF14BEB74D0EBE0F5B752E9AEEE7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D85931D9C2FB483390A0022856D778C2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DDC94684F34143E18B72C4FBA9E08A56"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E5A9F7AA88664197B88BA7B23210658B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_918921C730756D82BFBE7BBAACC8F888"
+        "MsmKey" = "8:_EB5A94D84A344246922CCD86DC9F3BC4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F21E7C782D4F41CFA01D04E6E880AEE3"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_79923C5855B842ACBBCCF199853B15C8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_918921C730756D82BFBE7BBAACC8F888"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -92,6 +194,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
     }
@@ -122,6 +232,166 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_15F046F4BFF94597910DE527E8B723C5"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound117.wav"
+            "TargetName" = "8:sound117.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_18BFFCA2CF9C452F8BD316BD9016D5A7"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\beep-6.wav"
+            "TargetName" = "8:beep-6.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1F076F75392E4A1E937ACA47EF7E8125"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound97.wav"
+            "TargetName" = "8:sound97.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_21F67586F45B4DE69EFE8FCC1EAA6CF8"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\beep-3.wav"
+            "TargetName" = "8:beep-3.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65DFDC51354A4A4E978A10875859BE4F"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound108.wav"
+            "TargetName" = "8:sound108.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6839A7D3E3B64A448D6FDE697D3A3C93"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound115.wav"
+            "TargetName" = "8:sound115.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_75DB2B297EF94765ACAB54E90C76F8D7"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\beep-2.wav"
+            "TargetName" = "8:beep-2.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_902C3225B2064CE093DBF6BCCC779558"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound116.wav"
+            "TargetName" = "8:sound116.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_918921C730756D82BFBE7BBAACC8F888"
             {
             "AssemblyRegister" = "3:1"
@@ -129,6 +399,11 @@
             "AssemblyAsmDisplayName" = "8:Lidgren.Network, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_918921C730756D82BFBE7BBAACC8F888"
+                    {
+                    "Name" = "8:Lidgren.Network.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Lidgren.Network.dll"
             "TargetName" = "8:"
@@ -148,12 +423,192 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A28D201DD73244C99935B38437CAD4C8"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound114.wav"
+            "TargetName" = "8:sound114.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AE7D9E5334664D4798594A8815D82878"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound106.wav"
+            "TargetName" = "8:sound106.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B61A07F2870F413CB7DDB20844DCD5E6"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound107.wav"
+            "TargetName" = "8:sound107.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B71A484766A447DEA8DCF09A88B113B7"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\beep-4.wav"
+            "TargetName" = "8:beep-4.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6BEFF14BEB74D0EBE0F5B752E9AEEE7"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound118.wav"
+            "TargetName" = "8:sound118.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D85931D9C2FB483390A0022856D778C2"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound95.wav"
+            "TargetName" = "8:sound95.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DDC94684F34143E18B72C4FBA9E08A56"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\beep-5.wav"
+            "TargetName" = "8:beep-5.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E5A9F7AA88664197B88BA7B23210658B"
             {
             "SourcePath" = "8:..\\chat_client\\cup.ico"
             "TargetName" = "8:cup.ico"
             "Tag" = "8:"
             "Folder" = "8:_6C8BA30179BB4E21ADED7E0195AE11C6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB5A94D84A344246922CCD86DC9F3BC4"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound99.wav"
+            "TargetName" = "8:sound99.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F21E7C782D4F41CFA01D04E6E880AEE3"
+            {
+            "SourcePath" = "8:..\\chat_client\\sounds\\sound98.wav"
+            "TargetName" = "8:sound98.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -184,6 +639,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5FBBCE4E63B1436D9D8C1BC068B5EA6C"
+                    {
+                    "Name" = "8:sounds"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_9C2CA3D5C549492BAB96294A542A4A64"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_9C75DEA505344F6EBC803F07C9EC6385"
@@ -236,7 +702,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Coffee Cafe Chat"
         "ProductCode" = "8:{34EAB389-EC77-49EE-8CB1-E65FF325AFBA}"
-        "PackageCode" = "8:{F53C3D0C-982E-4683-9C10-2E551FED4E89}"
+        "PackageCode" = "8:{BD54AD06-4647-4C20-8CCF-43CF46DCFDEA}"
         "UpgradeCode" = "8:{F90D4671-0C55-4D9F-8064-FA0622417CB9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -4,8 +4,14 @@ Imports System.IO
 Imports System.String
 
 Public Class frmClient
+    Public player As New System.Media.SoundPlayer
     Dim users As New List(Of user)
     Dim sbuf As New List(Of String)
+    Public sounds() As sounds_
+    Public Structure sounds_
+        Public path As String
+        Public index As Integer
+    End Structure
     Private Sub m_login_Click(sender As Object, e As EventArgs) Handles m_login.Click
         Dim topmost = Me.TopMost
         Me.TopMost = False
@@ -126,7 +132,7 @@ Public Class frmClient
             If (inc.MessageType = NetIncomingMessageType.Data) Then
                 Dim mtype = inc.ReadByte
                 If mtype = CByte(PacketTypes.chat_state) Then
-                    PlaySystemSound()
+                    Play_enter_Sound()
                     users.Clear()
                     Dim j As Integer = 0
                     j = inc.ReadInt32
@@ -141,7 +147,7 @@ Public Class frmClient
                     users_tb.SelectionLength = 0
                 End If
                 If mtype = PacketTypes.message Then
-                    PlaySystemSound()
+                    Play_message_Sound()
                     Dim str = inc.ReadString
                     check_sbuf(str)
                 End If
@@ -205,14 +211,18 @@ Public Class frmClient
         Catch ex As Exception
 
         End Try
-        While client.ConnectionsCount > 0
-            Application.DoEvents()
-        End While
+        Try
+            While client.ConnectionsCount > 0
+                Application.DoEvents()
+            End While
+        Catch ex As Exception
+        End Try
         is_running = False
     End Sub
 
     Private Sub frmClient_Load(sender As Object, e As EventArgs) Handles Me.Load
         m_sound.ForeColor = Color.Red
+        populate_sound_list()
     End Sub
 
     Private Sub update_timer_Tick(sender As Object, e As EventArgs) Handles update_timer.Tick
@@ -242,9 +252,28 @@ Public Class frmClient
         logout = True
     End Sub
 
-    Sub PlaySystemSound()
+    Sub populate_sound_list()
+        Dim p = Application.StartupPath + "\sounds"
+        Dim d = Directory.GetFiles(p)
+        Dim c As Integer = 0
+        ReDim sounds(d.Count)
+        For Each s In d
+            sounds(c) = New sounds_
+            sounds(c).path = s
+            sounds(c).index = c
+            c += 1
+        Next
+    End Sub
+    Sub Play_message_Sound()
         If m_sound.Checked Then
-            My.Computer.Audio.PlaySystemSound(System.Media.SystemSounds.Asterisk)
+            player.SoundLocation = My.Settings.message_sound
+            player.Play()
+        End If
+    End Sub
+    Sub Play_enter_Sound()
+        If m_sound.Checked Then
+            player.SoundLocation = My.Settings.enter_sound
+            player.Play()
         End If
     End Sub
 
@@ -276,5 +305,10 @@ Public Class frmClient
 
     Private Sub chat_text_tb_LinkClicked(sender As Object, e As LinkClickedEventArgs) Handles chat_text_tb.LinkClicked
         System.Diagnostics.Process.Start(e.LinkText)
+    End Sub
+
+    Private Sub m_set_sounds_Click(sender As Object, e As EventArgs) Handles m_set_sounds.Click
+        frmSounds.ShowDialog()
+
     End Sub
 End Class

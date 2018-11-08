@@ -89,6 +89,30 @@ Namespace My
                 Me("font") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property enter_sound() As String
+            Get
+                Return CType(Me("enter_sound"),String)
+            End Get
+            Set
+                Me("enter_sound") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property message_sound() As String
+            Get
+                Return CType(Me("message_sound"),String)
+            End Get
+            Set
+                Me("message_sound") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
