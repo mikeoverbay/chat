@@ -73,7 +73,7 @@ Public Class frmLogin
         Dim wc As New WebClient
         Dim cnt As Integer
         Dim max_tries As Integer = 50
-        Dim wan_ip As String
+        Dim wan_ip As String = ""
         While cnt < max_tries
             Try
                 wan_ip = wc.DownloadString("http://tnmshouse.com/getip/getserverip.php")

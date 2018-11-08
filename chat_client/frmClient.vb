@@ -232,13 +232,19 @@ Public Class frmClient
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles input_tb.TextChanged
 
         If input_tb.Text.Contains(vbCrLf) Then
-            If input_tb.Text.Length > 0 Then
+            If input_tb.Text.Length > 2 Then
                 If input_tb.Text = "*clr" + vbCrLf Then
                     clear_buf()
                     input_tb.Text = ""
                     Return
                 End If
-                out_string = input_tb.Text
+                If input_tb.Text.Length > 1 Then
+                    out_string = input_tb.Text
+                Else
+                    out_string = ""
+                End If
+                input_tb.Text = ""
+            Else
                 input_tb.Text = ""
 
             End If
