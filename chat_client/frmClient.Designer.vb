@@ -27,18 +27,20 @@ Partial Class frmClient
         Me.MM = New System.Windows.Forms.MenuStrip()
         Me.m_login = New System.Windows.Forms.ToolStripMenuItem()
         Me.m_logout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.m_set_font = New System.Windows.Forms.ToolStripMenuItem()
         Me.m_sound = New System.Windows.Forms.ToolStripMenuItem()
-        Me.chat_text_tb = New System.Windows.Forms.TextBox()
+        Me.m_keep_on_top = New System.Windows.Forms.ToolStripMenuItem()
         Me.input_tb = New System.Windows.Forms.TextBox()
         Me.users_tb = New System.Windows.Forms.TextBox()
         Me.update_timer = New System.Windows.Forms.Timer(Me.components)
-        Me.m_keep_on_top = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+        Me.chat_text_tb = New System.Windows.Forms.RichTextBox()
         Me.MM.SuspendLayout()
         Me.SuspendLayout()
         '
         'MM
         '
-        Me.MM.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.m_login, Me.m_logout, Me.m_sound, Me.m_keep_on_top})
+        Me.MM.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.m_login, Me.m_logout, Me.m_set_font, Me.m_sound, Me.m_keep_on_top})
         Me.MM.Location = New System.Drawing.Point(0, 0)
         Me.MM.Name = "MM"
         Me.MM.Size = New System.Drawing.Size(513, 24)
@@ -57,6 +59,12 @@ Partial Class frmClient
         Me.m_logout.Size = New System.Drawing.Size(57, 20)
         Me.m_logout.Text = "Logout"
         '
+        'm_set_font
+        '
+        Me.m_set_font.Name = "m_set_font"
+        Me.m_set_font.Size = New System.Drawing.Size(62, 20)
+        Me.m_set_font.Text = "Set Font"
+        '
         'm_sound
         '
         Me.m_sound.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -67,23 +75,16 @@ Partial Class frmClient
         Me.m_sound.Size = New System.Drawing.Size(53, 20)
         Me.m_sound.Text = "Sound"
         '
-        'chat_text_tb
+        'm_keep_on_top
         '
-        Me.chat_text_tb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chat_text_tb.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.chat_text_tb.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chat_text_tb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.chat_text_tb.Location = New System.Drawing.Point(0, 24)
-        Me.chat_text_tb.Margin = New System.Windows.Forms.Padding(0)
-        Me.chat_text_tb.Multiline = True
-        Me.chat_text_tb.Name = "chat_text_tb"
-        Me.chat_text_tb.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.chat_text_tb.Size = New System.Drawing.Size(396, 166)
-        Me.chat_text_tb.TabIndex = 1
-        Me.chat_text_tb.Text = "*clr to clear this screen at anytime." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "5 lines of the server chat buffer is sent " & _
-    "after login." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.m_keep_on_top.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.m_keep_on_top.Checked = True
+        Me.m_keep_on_top.CheckOnClick = True
+        Me.m_keep_on_top.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.m_keep_on_top.ForeColor = System.Drawing.Color.Red
+        Me.m_keep_on_top.Name = "m_keep_on_top"
+        Me.m_keep_on_top.Size = New System.Drawing.Size(87, 20)
+        Me.m_keep_on_top.Text = "Keep On Top"
         '
         'input_tb
         '
@@ -91,6 +92,8 @@ Partial Class frmClient
         Me.input_tb.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.input_tb.BackColor = System.Drawing.Color.Black
+        Me.input_tb.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.chat_client.My.MySettings.Default, "font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.input_tb.Font = Global.chat_client.My.MySettings.Default.font
         Me.input_tb.ForeColor = System.Drawing.Color.White
         Me.input_tb.Location = New System.Drawing.Point(0, 190)
         Me.input_tb.Margin = New System.Windows.Forms.Padding(0)
@@ -118,16 +121,22 @@ Partial Class frmClient
         '
         Me.update_timer.Interval = 50
         '
-        'm_keep_on_top
+        'chat_text_tb
         '
-        Me.m_keep_on_top.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.m_keep_on_top.Checked = True
-        Me.m_keep_on_top.CheckOnClick = True
-        Me.m_keep_on_top.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.m_keep_on_top.ForeColor = System.Drawing.Color.Red
-        Me.m_keep_on_top.Name = "m_keep_on_top"
-        Me.m_keep_on_top.Size = New System.Drawing.Size(87, 20)
-        Me.m_keep_on_top.Text = "Keep On Top"
+        Me.chat_text_tb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chat_text_tb.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.chat_text_tb.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.chat_client.My.MySettings.Default, "font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.chat_text_tb.Font = Global.chat_client.My.MySettings.Default.font
+        Me.chat_text_tb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.chat_text_tb.Location = New System.Drawing.Point(0, 24)
+        Me.chat_text_tb.Margin = New System.Windows.Forms.Padding(0)
+        Me.chat_text_tb.Name = "chat_text_tb"
+        Me.chat_text_tb.Size = New System.Drawing.Size(396, 166)
+        Me.chat_text_tb.TabIndex = 1
+        Me.chat_text_tb.Text = "*clr to clear this screen at anytime." & Global.Microsoft.VisualBasic.ChrW(10) & "5 lines of the server chat buffer is sent a" & _
+    "fter login." & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'frmClient
         '
@@ -152,7 +161,7 @@ Partial Class frmClient
 
     End Sub
     Friend WithEvents MM As System.Windows.Forms.MenuStrip
-    Friend WithEvents chat_text_tb As System.Windows.Forms.TextBox
+    Friend WithEvents chat_text_tb As System.Windows.Forms.RichTextBox
     Friend WithEvents input_tb As System.Windows.Forms.TextBox
     Friend WithEvents m_login As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents users_tb As System.Windows.Forms.TextBox
@@ -160,5 +169,7 @@ Partial Class frmClient
     Friend WithEvents m_logout As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents m_sound As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents m_keep_on_top As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents m_set_font As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FontDialog1 As System.Windows.Forms.FontDialog
 
 End Class

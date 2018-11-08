@@ -265,4 +265,16 @@ Public Class frmClient
             Me.TopMost = False
         End If
     End Sub
+
+    Private Sub m_set_font_Click(sender As Object, e As EventArgs) Handles m_set_font.Click
+        If FontDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Dim f = FontDialog1.Font
+            chat_text_tb.Font = f
+            input_tb.Font = f
+        End If
+    End Sub
+
+    Private Sub chat_text_tb_LinkClicked(sender As Object, e As LinkClickedEventArgs) Handles chat_text_tb.LinkClicked
+        System.Diagnostics.Process.Start(e.LinkText)
+    End Sub
 End Class

@@ -8,5 +8,8 @@
     <Setting Name="user_name" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="font" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Arial, 12pt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

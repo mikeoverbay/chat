@@ -11,9 +11,4 @@ C:\!_chat_program\chat_client\obj\Debug\chat_client.vbproj.GenerateResource.Cach
 C:\!_chat_program\chat_client\obj\Debug\chat_client.exe
 C:\!_chat_program\chat_client\obj\Debug\chat_client.xml
 C:\!_chat_program\chat_client\obj\Debug\chat_client.pdb
-C:\!_chat_program\chat_client\obj\Debug\Interop.WMPLib.dll
-C:\!_chat_program\chat_client\obj\Debug\AxInterop.WMPLib.dll
-C:\!_chat_program\chat_client\obj\Debug\chat_client.vbproj.ResolveComReference.cache
 C:\!_chat_program\chat_client\bin\Debug\cup.ico
-C:\!_chat_program\chat_client\bin\Debug\Interop.WMPLib.dll
-C:\!_chat_program\chat_client\bin\Debug\AxInterop.WMPLib.dll
