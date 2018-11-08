@@ -170,6 +170,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -701,15 +709,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Coffee Cafe Chat"
-        "ProductCode" = "8:{34EAB389-EC77-49EE-8CB1-E65FF325AFBA}"
-        "PackageCode" = "8:{BD54AD06-4647-4C20-8CCF-43CF46DCFDEA}"
+        "ProductCode" = "8:{EF8BD46C-BB69-4E3F-A58E-C692ADD60935}"
+        "PackageCode" = "8:{F7E83687-125D-4754-8DE8-D54FE2A61F34}"
         "UpgradeCode" = "8:{F90D4671-0C55-4D9F-8064-FA0622417CB9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Coffee_"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

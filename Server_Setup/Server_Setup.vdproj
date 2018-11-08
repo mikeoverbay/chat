@@ -61,6 +61,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -77,6 +85,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -133,11 +149,6 @@
             "AssemblyAsmDisplayName" = "8:Lidgren.Network, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_7E51FFD92CC669FCF979B35B0294E3E1"
-                    {
-                    "Name" = "8:Lidgren.Network.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Lidgren.Network.dll"
             "TargetName" = "8:"
@@ -224,15 +235,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Coffee Cafe Server"
-        "ProductCode" = "8:{71B69EE6-F506-4773-B7BD-F40952F81F79}"
-        "PackageCode" = "8:{8E49D808-98D5-4315-9C59-BEA3E4CBF3A0}"
+        "ProductCode" = "8:{4697F414-C8E3-4E36-A0D6-0FB1C81FEF4F}"
+        "PackageCode" = "8:{8A2E2EBC-C1C2-4869-8288-624971271078}"
         "UpgradeCode" = "8:{AA63F75A-CC17-40F5-ACBD-25B4AC9AAE97}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Coffee_"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -774,7 +785,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0864E0E25BC84928B0ED3FBE07DE2BD2"
             {
-            "SourcePath" = "8:..\\Chat_Server\\Chat_Server\\obj\\Debug\\Chat_Server.exe"
+            "SourcePath" = "8:..\\Chat_Server\\Chat_Server\\obj\\Release\\Chat_Server.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9A1531489E7A4D4DA0E110D2DB2B40B6"
