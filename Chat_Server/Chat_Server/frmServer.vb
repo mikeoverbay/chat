@@ -14,10 +14,12 @@ Enum PacketTypes As Byte
     message = 3
     chat_state = 4
     server_stoped = 5
+    greet_msg = 6
 End Enum
 Public Class frmServer
     Dim running As Boolean = True
     Dim sbuf As New List(Of String)
+    Dim stsbuf As New List(Of String)
     Dim Frmclosed As Boolean = False
     Dim wan_ip As String = ""
     Dim lan_ip As String = ""
@@ -129,23 +131,8 @@ found:
         Dim users As New List(Of user)
         Dim inc As NetIncomingMessage
         '========================================================================================
-
+        check_sbuf("◄ Server Just Started ►" + vbCrLf)
         While running
-            Dim pnt As Integer = 0
-            For Each cnx In Nserver.Connections
-                Select Case cnx.Status
-                    Case 1
-                        'Debug.WriteLine("CNX STAT 1: " + cnx.Status.ToString)
-                    Case 2
-                        'Debug.WriteLine("CNX STAT 2: " + cnx.Status.ToString)
-                    Case 3
-                        'Debug.WriteLine("CNX STAT 3: " + cnx.Status.ToString)
-
-                End Select
-                'If cnx.Status <> NetConnectionStatus.Connected Then
-                '    Debug.WriteLine("CNX STAT: " + cnx.Status.ToString)
-                'End If
-            Next
             inc = Nserver.ReadMessage
             Application.DoEvents()
             If inc IsNot Nothing Then
@@ -193,6 +180,14 @@ found:
                         msg.Write(u.name + " joined :" + Date.Now + vbCrLf)
                         check_sbuf(u.name + " joined :" + Date.Now + vbCrLf)
                         Nserver.SendMessage(msg, Nserver.Connections, NetDeliveryMethod.ReliableOrdered, 0)
+                        'send greeting message if set to
+                        If m_send_greeting.Checked Then
+                            Dim omes = Nserver.CreateMessage
+                            omes.Write(CByte(PacketTypes.greet_msg))
+                            omes.Write("◄ " + My.Settings.m_greeting + " ►" + vbCrLf)
+                            Nserver.SendMessage(omes, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered, 0)
+                        End If
+
                     End If
                 End If
                 'new message from user
@@ -202,15 +197,8 @@ found:
                         Dim str = inc.ReadString
                         check_sbuf(str)
                         Dim o_msg = Nserver.CreateMessage
-                        'o_msg.Write(CInt(users.Count))
                         o_msg.Write(PacketTypes.message)
                         o_msg.Write(str)
-                        'For Each cu In users
-                        '    'If cu.connection = inc.SenderConnection Then
-                        '    '    cu.message = str
-                        '    'End If
-                        '    o_msg.WriteAllProperties(cu)
-                        'Next
                         'message contains:
                         'name
                         'connection
@@ -247,11 +235,11 @@ found:
 
                 If inc.MessageType = NetIncomingMessageType.DebugMessage Then
                     Dim s = inc.ReadString
-                    Debug.WriteLine(s)
+                    check_stsbuf("Debug: " + s + vbCrLf)
                 End If
                 If inc.MessageType = NetIncomingMessageType.WarningMessage Then
                     Dim s = inc.ReadString
-                    Debug.WriteLine(s)
+                    check_stsbuf("Warning: " + s + vbCrLf)
                 End If
                 If inc.MessageType = NetIncomingMessageType.StatusChanged Then
 
@@ -285,8 +273,8 @@ found:
                     End If
 
                     If inc.ReadByte = PacketTypes.message Then
-                        Dim srt = inc.ReadString
-                        Debug.WriteLine("Status Change: " + srt)
+                        Dim s = inc.ReadString
+                        check_stsbuf("Status Change: " + s + vbCrLf)
                     End If
                 End If
 
@@ -303,6 +291,7 @@ found:
                 End While
                 End
             End If
+            Threading.Thread.Sleep(10)
         End While
 
 
@@ -315,6 +304,7 @@ found:
             Dim f As String = Temp_Storage + "\log_" + Date.Now.ToFileTimeUtc.ToString + ".txt"
             file_ = File.Open(f, FileMode.OpenOrCreate)
         End If
+        'round robin buffer
         If sbuf.Count > 30 Then
             sbuf.RemoveAt(0)
             sbuf.Add(s)
@@ -329,6 +319,22 @@ found:
         chat_text_tb.SelectionStart = chat_text_tb.TextLength
         chat_text_tb.ScrollToCaret()
     End Sub
+    Private Sub check_stsbuf(ByRef s As String)
+        'round robin buffer
+        If sbuf.Count > 30 Then
+            stsbuf.RemoveAt(0)
+            stsbuf.Add(s)
+        Else
+            stsbuf.Add(s)
+        End If
+        status_tb.Text = ""
+        For i = 0 To stsbuf.Count - 1
+            status_tb.Text += stsbuf(i)
+        Next
+        status_tb.SelectionLength = 0
+        status_tb.SelectionStart = status_tb.TextLength
+        status_tb.ScrollToCaret()
+    End Sub
 
     Private Sub m_greeting_Click(sender As Object, e As EventArgs) Handles m_greeting.Click
 
@@ -339,8 +345,17 @@ found:
         My.Settings.Save()
     End Sub
 
-    Private Sub m_logs_Click(sender As Object, e As EventArgs) Handles m_logs.Click
+
+    Private Sub m_log_folder_Click(sender As Object, e As EventArgs) Handles m_log_folder.Click
         Process.Start(Path.GetDirectoryName(Temp_Storage + "\"))
+    End Sub
+
+    Private Sub m_send_greeting_CheckedChanged(sender As Object, e As EventArgs) Handles m_send_greeting.CheckedChanged
+        If m_send_greeting.Checked Then
+            m_send_greeting.ForeColor = Color.Red
+        Else
+            m_send_greeting.ForeColor = Color.Black
+        End If
     End Sub
 End Class
 

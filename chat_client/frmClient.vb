@@ -4,7 +4,8 @@ Imports System.IO
 Imports System.String
 
 Public Class frmClient
-    Public player As New System.Media.SoundPlayer
+    Public player_e As New System.Media.SoundPlayer
+    Public player_m As New System.Media.SoundPlayer
     Dim users As New List(Of user)
     Dim sbuf As New List(Of String)
     Public sounds() As sounds_
@@ -13,10 +14,13 @@ Public Class frmClient
         Public index As Integer
     End Structure
     Private Sub m_login_Click(sender As Object, e As EventArgs) Handles m_login.Click
-        Dim topmost = Me.TopMost
         Me.TopMost = False
+        Application.DoEvents()
+        Application.DoEvents()
         frmLogin.ShowDialog()
-        Me.TopMost = topmost
+        Application.DoEvents()
+        Application.DoEvents()
+        Me.TopMost = m_keep_on_top.Checked
         Try
             config.ConnectionTimeout = 10.0!
         Catch ex As Exception
@@ -76,8 +80,14 @@ Public Class frmClient
                         users_tb.SelectionLength = 0
                         m_login.Enabled = False
                         m_logout.Enabled = True
+                        Play_enter_Sound()
 
                         Return True
+                    End If
+                    If mType = PacketTypes.greet_msg Then
+                        check_sbuf(inc.ReadString)
+                        Application.DoEvents()
+
                     End If
                     If mType = PacketTypes.message Then
                         Dim cnt = inc.ReadInt32
@@ -85,8 +95,9 @@ Public Class frmClient
                             Dim str = inc.ReadString
                             If i = cnt - 1 Then
                                 Me.Text = str
+                            Else
+                                check_sbuf(str)
                             End If
-                            check_sbuf(str)
                             Application.DoEvents()
                         Next
 
@@ -105,6 +116,7 @@ Public Class frmClient
         End While
         Return False
     End Function
+
     Private Sub check_sbuf(ByVal s As String)
         If sbuf.Count > 30 Then
             sbuf.RemoveAt(0)
@@ -125,9 +137,9 @@ Public Class frmClient
         Application.DoEvents()
     End Sub
     Private Sub CheckServerMessages()
-        While m_stop_sending.Checked
-            End
-        End While
+        'While m_stop_sending.Checked
+        '    'End
+        'End While
 
         Dim inc As NetIncomingMessage
         inc = client.ReadMessage
@@ -135,7 +147,6 @@ Public Class frmClient
             If (inc.MessageType = NetIncomingMessageType.Data) Then
                 Dim mtype = inc.ReadByte
                 If mtype = CByte(PacketTypes.chat_state) Then
-                    Play_enter_Sound()
                     users.Clear()
                     Dim j As Integer = 0
                     j = inc.ReadInt32
@@ -148,7 +159,14 @@ Public Class frmClient
                     Next
                     users_tb.SelectionStart = 0
                     users_tb.SelectionLength = 0
+                    Play_enter_Sound()
                 End If
+                If mtype = PacketTypes.greet_msg Then
+                    Play_enter_Sound()
+                    Dim str = inc.ReadString
+                    check_sbuf(str)
+                End If
+
                 If mtype = PacketTypes.message Then
                     Play_message_Sound()
                     Dim str = inc.ReadString
@@ -158,13 +176,15 @@ Public Class frmClient
                     Dim s = inc.ReadString
                 End If
                 If mtype = PacketTypes.server_stoped Then
+                    Play_enter_Sound()
                     client.Disconnect(user_name)
-                    MsgBox("Server has was shutdown!", MsgBoxStyle.Exclamation, "Server shutdown my operator")
+                    check_sbuf("Server has was shutdown!" + vbCrLf)
                     m_login.Enabled = True
                     m_logout.Enabled = False
                     Me.Focus()
                 End If
                 If mtype = PacketTypes.disconnect Then
+                    Play_enter_Sound()
                     Dim str = inc.ReadString
                     check_sbuf(str)
                     m_login.Enabled = True
@@ -172,6 +192,7 @@ Public Class frmClient
                 End If
             End If
             If (inc.MessageType = NetIncomingMessageType.StatusChanged) Then
+                Play_enter_Sound()
                 If client.ConnectionsCount = 0 Then
                     check_sbuf("You logged out" + vbCrLf)
                     m_login.Enabled = True
@@ -272,17 +293,17 @@ Public Class frmClient
             sounds(c).index = c
             c += 1
         Next
+        player_m.SoundLocation = My.Settings.message_sound
+        player_e.SoundLocation = My.Settings.enter_sound
     End Sub
     Sub Play_message_Sound()
         If m_sound.Checked Then
-            player.SoundLocation = My.Settings.message_sound
-            player.Play()
+            player_m.Play()
         End If
     End Sub
     Sub Play_enter_Sound()
         If m_sound.Checked Then
-            player.SoundLocation = My.Settings.enter_sound
-            player.Play()
+            player_e.Play()
         End If
     End Sub
 
@@ -318,8 +339,14 @@ Public Class frmClient
 
     Private Sub m_set_sounds_Click(sender As Object, e As EventArgs) Handles m_set_sounds.Click
         Me.TopMost = False
+        Application.DoEvents()
+        Me.TopMost = False
+        Application.DoEvents()
+        Me.TopMost = False
+        Application.DoEvents()
         frmSounds.ShowDialog()
         Me.TopMost = m_keep_on_top.Checked
+        Application.DoEvents()
     End Sub
 
     Private Sub m_stop_sending_CheckedChanged(sender As Object, e As EventArgs) Handles m_stop_sending.CheckedChanged

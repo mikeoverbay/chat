@@ -18,6 +18,7 @@ Module modGlobals
         message = 3
         chat_state = 4
         server_stoped = 5
+        greet_msg = 6
     End Enum
     Public Class user
         Private n As String

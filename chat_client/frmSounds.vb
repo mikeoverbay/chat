@@ -8,6 +8,8 @@ Public Class frmSounds
     Private Sub frmSounds_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = True
         Me.Hide()
+        frmClient.player_m.SoundLocation = My.Settings.message_sound
+        frmClient.player_e.SoundLocation = My.Settings.enter_sound
     End Sub
 
     Private Sub frmSounds_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -40,14 +42,14 @@ Public Class frmSounds
 
     Private Sub set_message_sound(sender As Object, e As EventArgs)
         Dim b = DirectCast(sender, Button)
-        frmClient.player.SoundLocation = b.Tag
-        frmClient.player.Play()
+        frmClient.player_m.SoundLocation = b.Tag
+        frmClient.player_m.Play()
         My.Settings.message_sound = b.Tag
     End Sub
     Private Sub set_enter_sound(sender As Object, e As EventArgs)
         Dim b = DirectCast(sender, Button)
-        frmClient.player.SoundLocation = b.Tag
-        frmClient.player.Play()
+        frmClient.player_e.SoundLocation = b.Tag
+        frmClient.player_e.Play()
         My.Settings.enter_sound = b.Tag
     End Sub
 
