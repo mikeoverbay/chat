@@ -125,8 +125,11 @@ Public Class frmClient
         Application.DoEvents()
     End Sub
     Private Sub CheckServerMessages()
-        Dim inc As NetIncomingMessage
+        While m_stop_sending.Checked
+            End
+        End While
 
+        Dim inc As NetIncomingMessage
         inc = client.ReadMessage
         If inc IsNot Nothing Then
             If (inc.MessageType = NetIncomingMessageType.Data) Then
@@ -314,7 +317,16 @@ Public Class frmClient
     End Sub
 
     Private Sub m_set_sounds_Click(sender As Object, e As EventArgs) Handles m_set_sounds.Click
+        Me.TopMost = False
         frmSounds.ShowDialog()
+        Me.TopMost = m_keep_on_top.Checked
+    End Sub
 
+    Private Sub m_stop_sending_CheckedChanged(sender As Object, e As EventArgs) Handles m_stop_sending.CheckedChanged
+        If m_stop_sending.Checked Then
+            m_stop_sending.ForeColor = Color.Red
+        Else
+            m_stop_sending.ForeColor = Color.Black
+        End If
     End Sub
 End Class

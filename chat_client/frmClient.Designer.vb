@@ -28,6 +28,8 @@ Partial Class frmClient
         Me.m_login = New System.Windows.Forms.ToolStripMenuItem()
         Me.m_logout = New System.Windows.Forms.ToolStripMenuItem()
         Me.m_set_font = New System.Windows.Forms.ToolStripMenuItem()
+        Me.m_stop_sending = New System.Windows.Forms.ToolStripMenuItem()
+        Me.m_set_sounds = New System.Windows.Forms.ToolStripMenuItem()
         Me.m_sound = New System.Windows.Forms.ToolStripMenuItem()
         Me.m_keep_on_top = New System.Windows.Forms.ToolStripMenuItem()
         Me.input_tb = New System.Windows.Forms.TextBox()
@@ -35,13 +37,12 @@ Partial Class frmClient
         Me.update_timer = New System.Windows.Forms.Timer(Me.components)
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.chat_text_tb = New System.Windows.Forms.RichTextBox()
-        Me.m_set_sounds = New System.Windows.Forms.ToolStripMenuItem()
         Me.MM.SuspendLayout()
         Me.SuspendLayout()
         '
         'MM
         '
-        Me.MM.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.m_login, Me.m_logout, Me.m_set_font, Me.m_set_sounds, Me.m_sound, Me.m_keep_on_top})
+        Me.MM.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.m_login, Me.m_logout, Me.m_set_font, Me.m_stop_sending, Me.m_set_sounds, Me.m_sound, Me.m_keep_on_top})
         Me.MM.Location = New System.Drawing.Point(0, 0)
         Me.MM.Name = "MM"
         Me.MM.Size = New System.Drawing.Size(513, 24)
@@ -65,6 +66,21 @@ Partial Class frmClient
         Me.m_set_font.Name = "m_set_font"
         Me.m_set_font.Size = New System.Drawing.Size(62, 20)
         Me.m_set_font.Text = "Set Font"
+        '
+        'm_stop_sending
+        '
+        Me.m_stop_sending.CheckOnClick = True
+        Me.m_stop_sending.Name = "m_stop_sending"
+        Me.m_stop_sending.Size = New System.Drawing.Size(99, 20)
+        Me.m_stop_sending.Text = "STOP SENDING"
+        Me.m_stop_sending.Visible = False
+        '
+        'm_set_sounds
+        '
+        Me.m_set_sounds.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.m_set_sounds.Name = "m_set_sounds"
+        Me.m_set_sounds.Size = New System.Drawing.Size(77, 20)
+        Me.m_set_sounds.Text = "Set Sounds"
         '
         'm_sound
         '
@@ -139,13 +155,6 @@ Partial Class frmClient
         Me.chat_text_tb.Text = "*clr to clear this screen at anytime." & Global.Microsoft.VisualBasic.ChrW(10) & "5 lines of the server chat buffer is sent a" & _
     "fter login." & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'm_set_sounds
-        '
-        Me.m_set_sounds.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.m_set_sounds.Name = "m_set_sounds"
-        Me.m_set_sounds.Size = New System.Drawing.Size(77, 20)
-        Me.m_set_sounds.Text = "Set Sounds"
-        '
         'frmClient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -180,5 +189,6 @@ Partial Class frmClient
     Friend WithEvents m_set_font As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FontDialog1 As System.Windows.Forms.FontDialog
     Friend WithEvents m_set_sounds As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents m_stop_sending As System.Windows.Forms.ToolStripMenuItem
 
 End Class

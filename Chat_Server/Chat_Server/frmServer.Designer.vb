@@ -28,6 +28,7 @@ Partial Class frmServer
         Me.m_greeting = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
         Me.m_ip_port = New System.Windows.Forms.ToolStripTextBox()
+        Me.m_logs = New System.Windows.Forms.ToolStripMenuItem()
         Me.mm.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -47,7 +48,7 @@ Partial Class frmServer
         '
         'mm
         '
-        Me.mm.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.m_greeting, Me.ToolStripTextBox1, Me.m_ip_port})
+        Me.mm.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.m_greeting, Me.ToolStripTextBox1, Me.m_ip_port, Me.m_logs})
         Me.mm.Location = New System.Drawing.Point(0, 0)
         Me.mm.Name = "mm"
         Me.mm.Size = New System.Drawing.Size(635, 27)
@@ -79,6 +80,13 @@ Partial Class frmServer
         Me.m_ip_port.Name = "m_ip_port"
         Me.m_ip_port.Size = New System.Drawing.Size(250, 23)
         '
+        'm_logs
+        '
+        Me.m_logs.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.m_logs.Name = "m_logs"
+        Me.m_logs.Size = New System.Drawing.Size(44, 23)
+        Me.m_logs.Text = "Logs"
+        '
         'frmServer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -103,5 +111,6 @@ Partial Class frmServer
     Friend WithEvents m_greeting As System.Windows.Forms.ToolStripTextBox
     Friend WithEvents m_ip_port As System.Windows.Forms.ToolStripTextBox
     Friend WithEvents ToolStripTextBox1 As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents m_logs As System.Windows.Forms.ToolStripMenuItem
 
 End Class

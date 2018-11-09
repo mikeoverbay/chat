@@ -24,6 +24,7 @@ Public Class frmServer
     Dim Temp_Storage As String
     Dim file_ As FileStream
     Dim logMaxSize As Long = 1000000
+    Dim current_file As String = ""
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Frmclosed = True
         e.Cancel = True
@@ -83,6 +84,8 @@ found:
         'Return "this"
     End Function
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        '========================================================================================
+        'setup log file
         Temp_Storage = Path.GetTempPath ' this gets the user temp storage folder
         Temp_Storage += "Coffee_Server_logs"
         If Not System.IO.Directory.Exists(Temp_Storage) Then
@@ -91,9 +94,8 @@ found:
         Dim di = Directory.GetFiles(Temp_Storage)
         Dim da As New Date(0)
 
-        Dim current_file As String = ""
         If di.Count = 0 Then
-            Dim f As String = "log_" + Date.Now.ToFileTimeUtc.ToString
+            Dim f As String = "log_" + Date.Now.ToFileTimeUtc.ToString + ".txt"
             current_file = f
             file_ = File.Open(Temp_Storage + "\" + current_file, FileMode.OpenOrCreate)
         Else
@@ -106,7 +108,8 @@ found:
             Next
             file_ = File.Open(current_file, FileMode.Append)
         End If
-
+        '========================================================================================
+        'setup server
         Dim config As New NetPeerConfiguration("Jack123fred321")
         config.ConnectionTimeout = 10.0!
         config.Port = 19566
@@ -125,8 +128,24 @@ found:
         Nserver.Start()
         Dim users As New List(Of user)
         Dim inc As NetIncomingMessage
+        '========================================================================================
 
         While running
+            Dim pnt As Integer = 0
+            For Each cnx In Nserver.Connections
+                Select Case cnx.Status
+                    Case 1
+                        'Debug.WriteLine("CNX STAT 1: " + cnx.Status.ToString)
+                    Case 2
+                        'Debug.WriteLine("CNX STAT 2: " + cnx.Status.ToString)
+                    Case 3
+                        'Debug.WriteLine("CNX STAT 3: " + cnx.Status.ToString)
+
+                End Select
+                'If cnx.Status <> NetConnectionStatus.Connected Then
+                '    Debug.WriteLine("CNX STAT: " + cnx.Status.ToString)
+                'End If
+            Next
             inc = Nserver.ReadMessage
             Application.DoEvents()
             If inc IsNot Nothing Then
@@ -235,28 +254,48 @@ found:
                     Debug.WriteLine(s)
                 End If
                 If inc.MessageType = NetIncomingMessageType.StatusChanged Then
-                    If inc IsNot Nothing Then
-                        If inc.ReadByte = PacketTypes.message Then
-                            Dim srt = inc.ReadString
 
-                        End If
+                    Dim cl = inc.SenderConnection
+                    Dim msg = cl.Status.ToString
+                    If msg = "Disconnected" Then
+                        'some one timed out
+                        Debug.WriteLine("Status Change: " + msg)
+
+                        For i = 0 To users.Count - 1
+                            If users(i).connection.RemoteUniqueIdentifier = cl.RemoteUniqueIdentifier Then
+                                Dim name As String = users(i).name
+                                users.RemoveAt(i)
+                                Dim o_msg = Nserver.CreateMessage
+                                'update everyones user list
+                                o_msg.Write(CByte(PacketTypes.chat_state))
+                                o_msg.Write(CInt(users.Count)) 'number of users
+                                For Each cu In users
+                                    o_msg.WriteAllProperties(cu)
+                                Next
+                                Nserver.SendMessage(o_msg, Nserver.Connections, NetDeliveryMethod.ReliableOrdered, 0)
+                                o_msg = Nserver.CreateMessage
+                                'tell everyone who left
+                                o_msg.Write(CByte(PacketTypes.message))
+                                o_msg.Write(name + " timed out :" + Date.Now + vbCrLf)
+                                check_sbuf(name + " timed out :" + Date.Now + vbCrLf)
+                                Nserver.SendMessage(o_msg, Nserver.Connections, NetDeliveryMethod.ReliableOrdered, 0)
+                                Exit For
+                            End If
+                        Next
+                    End If
+
+                    If inc.ReadByte = PacketTypes.message Then
+                        Dim srt = inc.ReadString
+                        Debug.WriteLine("Status Change: " + srt)
                     End If
                 End If
 
-
             End If
             If Frmclosed Then
-                'For Each cu In users
-                '    'If cu.connection = inc.SenderConnection Then
-                '    '    cu.message = str
-                '    'End If
-                '    o_msg.WriteAllProperties(cu)
-                'Next
+                'tell everyone the server was shut down
                 Dim o_msg = Nserver.CreateMessage
-
-                o_msg.Write(PacketTypes.server_stoped)
+                o_msg.Write(PacketTypes.server_stoped) 'server stoped message
                 For Each ch In Nserver.Connections
-
                     ch.SendMessage(o_msg, NetDeliveryMethod.ReliableOrdered, 0)
                 Next
                 While Nserver.Connections.Length > 0
@@ -273,7 +312,7 @@ found:
         file_.Write(a, 0, a.Length)
         If file_.Length > logMaxSize Then
             file_.Close()
-            Dim f As String = Temp_Storage + "\log_" + Date.Now.ToFileTimeUtc.ToString
+            Dim f As String = Temp_Storage + "\log_" + Date.Now.ToFileTimeUtc.ToString + ".txt"
             file_ = File.Open(f, FileMode.OpenOrCreate)
         End If
         If sbuf.Count > 30 Then
@@ -298,6 +337,10 @@ found:
     Private Sub m_greeting_TextChanged(sender As Object, e As EventArgs) Handles m_greeting.TextChanged
         My.Settings.m_greeting = m_greeting.Text
         My.Settings.Save()
+    End Sub
+
+    Private Sub m_logs_Click(sender As Object, e As EventArgs) Handles m_logs.Click
+        Process.Start(Path.GetDirectoryName(Temp_Storage + "\"))
     End Sub
 End Class
 

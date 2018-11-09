@@ -34,13 +34,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7E51FFD92CC669FCF979B35B0294E3E1"
+        "OwnerKey" = "8:_0864E0E25BC84928B0ED3FBE07DE2BD2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0864E0E25BC84928B0ED3FBE07DE2BD2"
+        "OwnerKey" = "8:_7E51FFD92CC669FCF979B35B0294E3E1"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -68,6 +68,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -92,6 +100,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
     }
@@ -149,6 +165,11 @@
             "AssemblyAsmDisplayName" = "8:Lidgren.Network, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_7E51FFD92CC669FCF979B35B0294E3E1"
+                    {
+                    "Name" = "8:Lidgren.Network.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Lidgren.Network.dll"
             "TargetName" = "8:"
@@ -240,7 +261,7 @@
         "UpgradeCode" = "8:{AA63F75A-CC17-40F5-ACBD-25B4AC9AAE97}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.2"
@@ -785,7 +806,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0864E0E25BC84928B0ED3FBE07DE2BD2"
             {
-            "SourcePath" = "8:..\\Chat_Server\\Chat_Server\\obj\\Release\\Chat_Server.exe"
+            "SourcePath" = "8:..\\Chat_Server\\Chat_Server\\obj\\Debug\\Chat_Server.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9A1531489E7A4D4DA0E110D2DB2B40B6"

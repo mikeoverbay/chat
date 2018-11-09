@@ -10,4 +10,3 @@ C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.exe
 C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.xml
 C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.pdb
 C:\!_chat_program\Chat_Server\Chat_Server\bin\Release\cup.ico
-C:\!_chat_program\Chat_Server\Chat_Server\obj\Release\Chat_Server.vbprojResolveAssemblyReference.cache
