@@ -27,6 +27,8 @@ Public Class frmServer
     Dim file_ As FileStream
     Dim logMaxSize As Long = 1000000
     Dim current_file As String = ""
+    Dim Nserver As NetServer
+    Dim Os_Shutdown As Boolean = False
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Frmclosed = True
         e.Cancel = True
@@ -85,7 +87,26 @@ found:
         'Next
         'Return "this"
     End Function
+    Public Sub Handler_SessionEnding(ByVal sender As Object, _
+           ByVal e As Microsoft.Win32.SessionEndingEventArgs)
+        If e.Reason = Microsoft.Win32.SessionEndReasons.Logoff Then
+            Os_Shutdown = True
+        ElseIf e.Reason = Microsoft.Win32.SessionEndReasons.SystemShutdown Then
+            Os_Shutdown = True
+        End If
+    End Sub
+    Private Sub send_reboot_msg()
+        Dim o_msg = Nserver.CreateMessage
+        o_msg.Write(CByte(PacketTypes.message))
+        o_msg.Write("Windows Hosting Server is Restarting..")
+        For Each ch In Nserver.Connections
+            ch.SendMessage(o_msg, NetDeliveryMethod.ReliableOrdered, 0)
+        Next
+    End Sub
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        '========================================================================================
+        AddHandler Microsoft.Win32.SystemEvents.SessionEnding, _
+               AddressOf Handler_SessionEnding
         '========================================================================================
         'setup log file
         Temp_Storage = Path.GetTempPath ' this gets the user temp storage folder
@@ -118,7 +139,7 @@ found:
         config.MaximumConnections = 100
         Dim ip = get_ip_address()
         config.EnableMessageType(NetIncomingMessageType.ConnectionApproval)
-        Dim Nserver = New NetServer(config)
+        Nserver = New NetServer(config)
         Me.Show()
         Application.DoEvents()
         'For i = 1 To 10
@@ -280,6 +301,9 @@ found:
 
             End If
             If Frmclosed Then
+                If Os_Shutdown Then
+                    send_reboot_msg()
+                End If
                 'tell everyone the server was shut down
                 Dim o_msg = Nserver.CreateMessage
                 o_msg.Write(PacketTypes.server_stoped) 'server stoped message
