@@ -8,16 +8,19 @@ Public Class frmClient
     Public player_m As New System.Media.SoundPlayer
     Dim users As New List(Of user)
     Dim sbuf As New List(Of String)
+    Public result As Boolean
     Public sounds() As sounds_
     Public Structure sounds_
         Public path As String
         Public index As Integer
     End Structure
     Private Sub m_login_Click(sender As Object, e As EventArgs) Handles m_login.Click
+        result = False
         Me.TopMost = False
         Application.DoEvents()
         Application.DoEvents()
-        If Not frmLogin.ShowDialog() = Windows.Forms.DialogResult.OK Then
+        frmLogin.ShowDialog()
+        If Not result Then
             Return
         End If
         Application.DoEvents()

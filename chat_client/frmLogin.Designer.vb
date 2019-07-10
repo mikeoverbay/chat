@@ -53,6 +53,7 @@ Partial Class frmLogin
         '
         'longin_bt
         '
+        Me.longin_bt.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.longin_bt.Location = New System.Drawing.Point(16, 83)
         Me.longin_bt.Name = "longin_bt"
         Me.longin_bt.Size = New System.Drawing.Size(159, 23)

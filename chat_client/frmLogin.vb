@@ -6,7 +6,6 @@ Imports System.String
 Imports System.Net
 
 Public Class frmLogin
-
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles user_name_tb.TextChanged
         If user_name_tb.Text.Contains(vbCrLf) Then
             user_name_tb.Text = user_name_tb.Text.Replace(vbCrLf, "")
@@ -26,20 +25,18 @@ Public Class frmLogin
                 MsgBox("Invalid IP Address", MsgBoxStyle.Exclamation, "Bad IP Address")
                 ip_tb.Text = ""
                 ip_tb.Focus()
-                Me.DialogResult = Windows.Forms.DialogResult.Abort
                 Return
             End If
             user_name_tb.Focus()
+            frmClient.result = True
             Me.Hide()
             Return
         Else
             MsgBox("Invalid IP Address", MsgBoxStyle.Exclamation, "Bad IP Address")
             ip_tb.Text = ""
             ip_tb.Focus()
-            Me.DialogResult = Windows.Forms.DialogResult.Abort
             Return
         End If
-        Me.DialogResult = Windows.Forms.DialogResult.OK
         Me.Hide()
         Return
     End Sub
@@ -47,7 +44,7 @@ Public Class frmLogin
     Private Sub frmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = True
         Me.Hide()
-        Me.DialogResult = Windows.Forms.DialogResult.Abort
+
     End Sub
 
     Private Sub ip_tb_TextChanged(sender As Object, e As EventArgs) Handles ip_tb.TextChanged
@@ -60,7 +57,6 @@ Public Class frmLogin
                     MsgBox("Invalid IP Address", MsgBoxStyle.Exclamation, "Bad IP Address")
                     ip_tb.Text = ""
                     ip_tb.Focus()
-                    Me.DialogResult = Windows.Forms.DialogResult.Abort
                     Return
                 End If
                 user_name_tb.Focus()
@@ -74,6 +70,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles Me.Load
+
         Dim wc As New WebClient
         Dim cnt As Integer
         Dim max_tries As Integer = 50
@@ -88,7 +85,6 @@ Public Class frmLogin
         End While
         If cnt >= max_tries Then
             MsgBox("Could not connect to tnmshouse.com", MsgBoxStyle.OkOnly, "Damn..")
-            Me.DialogResult = Windows.Forms.DialogResult.Abort
             Return
         End If
 found:
