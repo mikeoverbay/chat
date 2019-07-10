@@ -32,17 +32,18 @@ Partial Class frmClient
         Me.m_set_sounds = New System.Windows.Forms.ToolStripMenuItem()
         Me.m_sound = New System.Windows.Forms.ToolStripMenuItem()
         Me.m_keep_on_top = New System.Windows.Forms.ToolStripMenuItem()
-        Me.input_tb = New System.Windows.Forms.TextBox()
         Me.users_tb = New System.Windows.Forms.TextBox()
         Me.update_timer = New System.Windows.Forms.Timer(Me.components)
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+        Me.input_tb = New System.Windows.Forms.TextBox()
         Me.chat_text_tb = New System.Windows.Forms.RichTextBox()
+        Me.m_auto_Connect = New System.Windows.Forms.ToolStripMenuItem()
         Me.MM.SuspendLayout()
         Me.SuspendLayout()
         '
         'MM
         '
-        Me.MM.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.m_login, Me.m_logout, Me.m_set_font, Me.m_stop_sending, Me.m_set_sounds, Me.m_sound, Me.m_keep_on_top})
+        Me.MM.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.m_login, Me.m_logout, Me.m_auto_Connect, Me.m_set_font, Me.m_stop_sending, Me.m_set_sounds, Me.m_sound, Me.m_keep_on_top})
         Me.MM.Location = New System.Drawing.Point(0, 0)
         Me.MM.Name = "MM"
         Me.MM.Size = New System.Drawing.Size(513, 24)
@@ -103,22 +104,6 @@ Partial Class frmClient
         Me.m_keep_on_top.Size = New System.Drawing.Size(87, 20)
         Me.m_keep_on_top.Text = "Keep On Top"
         '
-        'input_tb
-        '
-        Me.input_tb.AcceptsReturn = True
-        Me.input_tb.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.input_tb.BackColor = System.Drawing.Color.Black
-        Me.input_tb.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.chat_client.My.MySettings.Default, "font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.input_tb.Font = Global.chat_client.My.MySettings.Default.font
-        Me.input_tb.ForeColor = System.Drawing.Color.White
-        Me.input_tb.Location = New System.Drawing.Point(0, 190)
-        Me.input_tb.Margin = New System.Windows.Forms.Padding(0)
-        Me.input_tb.Multiline = True
-        Me.input_tb.Name = "input_tb"
-        Me.input_tb.Size = New System.Drawing.Size(396, 48)
-        Me.input_tb.TabIndex = 2
-        '
         'users_tb
         '
         Me.users_tb.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -138,6 +123,22 @@ Partial Class frmClient
         '
         Me.update_timer.Interval = 50
         '
+        'input_tb
+        '
+        Me.input_tb.AcceptsReturn = True
+        Me.input_tb.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.input_tb.BackColor = System.Drawing.Color.Black
+        Me.input_tb.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.chat_client.My.MySettings.Default, "font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.input_tb.Font = Global.chat_client.My.MySettings.Default.font
+        Me.input_tb.ForeColor = System.Drawing.Color.White
+        Me.input_tb.Location = New System.Drawing.Point(0, 190)
+        Me.input_tb.Margin = New System.Windows.Forms.Padding(0)
+        Me.input_tb.Multiline = True
+        Me.input_tb.Name = "input_tb"
+        Me.input_tb.Size = New System.Drawing.Size(396, 48)
+        Me.input_tb.TabIndex = 2
+        '
         'chat_text_tb
         '
         Me.chat_text_tb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -154,6 +155,14 @@ Partial Class frmClient
         Me.chat_text_tb.TabIndex = 1
         Me.chat_text_tb.Text = "*clr to clear this screen at anytime." & Global.Microsoft.VisualBasic.ChrW(10) & "5 lines of the server chat buffer is sent a" & _
     "fter login." & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'm_auto_Connect
+        '
+        Me.m_auto_Connect.Checked = Global.chat_client.My.MySettings.Default.Auto_Connect
+        Me.m_auto_Connect.CheckOnClick = True
+        Me.m_auto_Connect.Name = "m_auto_Connect"
+        Me.m_auto_Connect.Size = New System.Drawing.Size(93, 20)
+        Me.m_auto_Connect.Text = "Auto Connect"
         '
         'frmClient
         '
@@ -190,5 +199,6 @@ Partial Class frmClient
     Friend WithEvents FontDialog1 As System.Windows.Forms.FontDialog
     Friend WithEvents m_set_sounds As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents m_stop_sending As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents m_auto_Connect As System.Windows.Forms.ToolStripMenuItem
 
 End Class

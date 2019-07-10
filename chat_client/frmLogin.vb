@@ -26,6 +26,7 @@ Public Class frmLogin
                 MsgBox("Invalid IP Address", MsgBoxStyle.Exclamation, "Bad IP Address")
                 ip_tb.Text = ""
                 ip_tb.Focus()
+                Me.DialogResult = Windows.Forms.DialogResult.Abort
                 Return
             End If
             user_name_tb.Focus()
@@ -35,9 +36,10 @@ Public Class frmLogin
             MsgBox("Invalid IP Address", MsgBoxStyle.Exclamation, "Bad IP Address")
             ip_tb.Text = ""
             ip_tb.Focus()
+            Me.DialogResult = Windows.Forms.DialogResult.Abort
             Return
         End If
-
+        Me.DialogResult = Windows.Forms.DialogResult.OK
         Me.Hide()
         Return
     End Sub
@@ -45,6 +47,7 @@ Public Class frmLogin
     Private Sub frmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = True
         Me.Hide()
+        Me.DialogResult = Windows.Forms.DialogResult.Abort
     End Sub
 
     Private Sub ip_tb_TextChanged(sender As Object, e As EventArgs) Handles ip_tb.TextChanged
@@ -57,6 +60,7 @@ Public Class frmLogin
                     MsgBox("Invalid IP Address", MsgBoxStyle.Exclamation, "Bad IP Address")
                     ip_tb.Text = ""
                     ip_tb.Focus()
+                    Me.DialogResult = Windows.Forms.DialogResult.Abort
                     Return
                 End If
                 user_name_tb.Focus()
@@ -84,6 +88,7 @@ Public Class frmLogin
         End While
         If cnt >= max_tries Then
             MsgBox("Could not connect to tnmshouse.com", MsgBoxStyle.OkOnly, "Damn..")
+            Me.DialogResult = Windows.Forms.DialogResult.Abort
             Return
         End If
 found:

@@ -2,7 +2,7 @@
 
 Imports System.IO
 Imports System.String
-
+Imports System.Net
 Public Class frmClient
     Public player_e As New System.Media.SoundPlayer
     Public player_m As New System.Media.SoundPlayer
@@ -17,7 +17,9 @@ Public Class frmClient
         Me.TopMost = False
         Application.DoEvents()
         Application.DoEvents()
-        frmLogin.ShowDialog()
+        If Not frmLogin.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            Return
+        End If
         Application.DoEvents()
         Application.DoEvents()
         Me.TopMost = m_keep_on_top.Checked
@@ -227,11 +229,12 @@ Public Class frmClient
     End Sub
     Private Sub frmClient_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Try
-
-            Dim o_msg = client.CreateMessage
-            o_msg.Write(PacketTypes.disconnect)
-            o_msg.Write(user_name)
-            client.SendMessage(o_msg, NetDeliveryMethod.ReliableOrdered, 0)
+            If client.ConnectionsCount > 0 Then
+                Dim o_msg = client.CreateMessage
+                o_msg.Write(PacketTypes.disconnect)
+                o_msg.Write(user_name)
+                client.SendMessage(o_msg, NetDeliveryMethod.ReliableOrdered, 0)
+            End If
         Catch ex As Exception
 
         End Try
@@ -247,8 +250,70 @@ Public Class frmClient
     Private Sub frmClient_Load(sender As Object, e As EventArgs) Handles Me.Load
         m_sound.ForeColor = Color.Red
         populate_sound_list()
+        m_auto_Connect.Checked = My.Settings.Auto_Connect
+        Me.Show()
+        If My.Settings.Auto_Connect Then
+            connect_me()
+        End If
     End Sub
+    Private Sub connect_me()
+        Dim wc As New WebClient
+        Dim cnt As Integer
+        Dim max_tries As Integer = 50
+        Dim wan_ip As String = ""
+        While cnt < max_tries
+            Try
+                wan_ip = wc.DownloadString("http://tnmshouse.com/getip/getserverip.php")
+            Catch ex As Exception
+                cnt += 1
+            End Try
+            GoTo found
+        End While
+        If cnt >= max_tries Then
+            MsgBox("Could not connect to tnmshouse.com", MsgBoxStyle.OkOnly, "Damn..")
+            Return
+        End If
+found:
+        Application.DoEvents()
+        'ip_tb.Text = wan_ip
+        Application.DoEvents()
+        Application.DoEvents()
+        'frmLogin.ShowDialog()
+        Application.DoEvents()
+        Application.DoEvents()
+        Try
+            config.ConnectionTimeout = 10.0!
+        Catch ex As Exception
+        End Try
+        client = New NetClient(config)
 
+        Dim o_msg = client.CreateMessage
+
+        client.Start()
+        out_string = ""
+        o_msg.Write(CByte(PacketTypes.Connect))
+
+        user_name = My.Settings.user_name
+        o_msg.Write(user_name)
+
+        Try
+            client.Connect(wan_ip, 19566, o_msg)
+
+        Catch ex As Exception
+            MsgBox("Unable to login. Bad IP?", MsgBoxStyle.Exclamation, "Login Error")
+            Return
+        End Try
+
+        If WaitForStratingInfo() Then
+            update_timer.Start()
+            While is_running
+                GetInputAndSendItToServer()
+                Application.DoEvents()
+                Threading.Thread.Sleep(10)
+            End While
+        End If
+        Me.TopMost = m_keep_on_top.Checked
+    End Sub
     Private Sub update_timer_Tick(sender As Object, e As EventArgs) Handles update_timer.Tick
         CheckServerMessages()
     End Sub
@@ -355,5 +420,16 @@ Public Class frmClient
         Else
             m_stop_sending.ForeColor = Color.Black
         End If
+    End Sub
+
+
+    Private Sub m_auto_Connect_CheckedChanged(sender As Object, e As EventArgs) Handles m_auto_Connect.CheckedChanged
+        If m_auto_Connect.Checked Then
+            m_auto_Connect.ForeColor = Color.Red
+        Else
+            m_auto_Connect.ForeColor = Color.Black
+        End If
+        My.Settings.Auto_Connect = m_auto_Connect.Checked
+        My.Settings.Save()
     End Sub
 End Class
