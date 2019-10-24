@@ -29,3 +29,4 @@ C:\!_chat_program\chat_client\obj\Release\chat_client.vbproj.GenerateResource.Ca
 C:\!_chat_program\chat_client\obj\Release\chat_client.exe
 C:\!_chat_program\chat_client\obj\Release\chat_client.xml
 C:\!_chat_program\chat_client\obj\Release\chat_client.pdb
+C:\!_chat_program\chat_client\obj\Release\chat_client.vbprojResolveAssemblyReference.cache
