@@ -2,6 +2,9 @@
 
 ## There is a client and a server.</br>
 
+
+Version 4 fixes the client and server from being blocked by added security to my web site.
+
 The server accesses MY WEB SITE to get its IP.</br>
 I included the PHP scripts if you want to put these on your site.
 You will need to change the line in the code that points at tnmshouse.com to match your site and path to where these 2 scripts are located on your web site.</br>

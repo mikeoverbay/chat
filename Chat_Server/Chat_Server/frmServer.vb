@@ -37,11 +37,12 @@ Public Class frmServer
     Private Function get_ip_address() As String
   
         Dim wc As New WebClient
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim cnt As Integer
         Dim max_tries As Integer = 50
         While cnt < max_tries
             Try
-                wan_ip = wc.DownloadString("http://tnmshouse.com/getip/getip.php")
+                wan_ip = wc.DownloadString("https://tnmshouse.com/getip/getip.php")
             Catch ex As Exception
                 cnt += 1
             End Try

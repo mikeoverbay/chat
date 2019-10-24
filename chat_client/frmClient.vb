@@ -258,19 +258,21 @@ Public Class frmClient
         If My.Settings.Auto_Connect Then
             connect_me()
         End If
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
     End Sub
     Private Sub connect_me()
         Dim wc As New WebClient
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim cnt As Integer
-        Dim max_tries As Integer = 50
+        Dim max_tries As Integer = 20
         Dim wan_ip As String = ""
         While cnt < max_tries
             Try
-                wan_ip = wc.DownloadString("http://tnmshouse.com/getip/getserverip.php")
+                wan_ip = wc.DownloadString("https://tnmshouse.com/getip/getserverip.php")
+                GoTo found
             Catch ex As Exception
                 cnt += 1
             End Try
-            GoTo found
         End While
         If cnt >= max_tries Then
             MsgBox("Could not connect to tnmshouse.com", MsgBoxStyle.OkOnly, "Damn..")
